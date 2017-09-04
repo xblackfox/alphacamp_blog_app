@@ -1,7 +1,16 @@
 Rails.application.routes.draw do
 
-  root to: "pages#home"
+  get 'testfile/home'
+
+  root to: "posts#index"
 
   get 'about', to: 'pages#about'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'contact', to: 'pages#contact'
+
+  #get 'post/new', to: 'posts#new'
+  #post 'post', to: 'post#create'
+
+resources :posts, only: [:destroy, :index, :show, :new, :create, :edit, :update]
+#resources: model_name_in_plural_form i.e posts and not post
+
 end
